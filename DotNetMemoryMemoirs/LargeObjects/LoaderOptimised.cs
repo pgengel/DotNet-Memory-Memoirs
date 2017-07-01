@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,13 +22,23 @@ namespace DotNetMemoryMemoirs.LargeObjects
 
 				Console.WriteLine("Collect a snapshot, press enter to run GC.");
 				Console.ReadLine();
-			}
+}
 
 			Console.WriteLine("Now look at the snapshots in the profiler...");
 			Console.WriteLine("* GC is almost invisible");
 			Console.WriteLine("* Less allocations happening");
 			Console.WriteLine("* Compare two snapshots: almost no traffic");
 			Console.WriteLine("* Less work for GC, less pauses!");
+
+			Console.WriteLine("Collect a snapshot, press enter to run compact the large object heap (LOH).");
+			Console.ReadLine();
+
+			Console.WriteLine("Memory used before collection:{0:N0}", GC.GetTotalMemory(false));
+
+			GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
+			GC.Collect();
+			Console.WriteLine("Memory used after full collection:{0:N0}", GC.GetTotalMemory(true));
+
 		}
 	}
 }

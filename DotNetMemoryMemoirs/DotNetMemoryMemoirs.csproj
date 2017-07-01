@@ -48,6 +48,8 @@
     <Compile Include="BoxingUnboxing\BoxingUnboxing.cs" />
     <Compile Include="DisposePattern\DisposablePattern.cs" />
     <Compile Include="DisposePattern\DisposeObject.cs" />
+    <Compile Include="GCMethods\GCCollection.cs" />
+    <Compile Include="GCMethods\TryStartNoGCRegion.cs" />
     <Compile Include="IDemo.cs" />
     <Compile Include="LargeObjects\LoaderOptimised.cs" />
     <Compile Include="LargeObjects\LoaderUnOptimised.cs" />
