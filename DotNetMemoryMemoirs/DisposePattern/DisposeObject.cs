@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			Console.WriteLine("Help the garbage collector to clean up objects!");
 			Console.WriteLine("Disposable does just that.");
 
-			DemoDontDispose();
-			DemoDispose();
+			DontDispose();
+			RunDispose();
 		}
 
-		private static void DemoDontDispose()
+		private static void DontDispose()
 		{
 			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see SampleDisposable)");
 
@@ -53,7 +54,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			GC.Collect(1);
 		}
 
-		private static void DemoDispose()
+		private static void RunDispose()
 		{
 			Console.WriteLine("Let's generate 10.000 objects and this time, dispose them.");
 
@@ -77,5 +78,25 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			Console.WriteLine("Collect a snapshot, and see if there are any SampleDisposable in memory. They should be gone now.");
 			GC.Collect(0);
 		}
+
+		private static void TimerDispose()
+		{
+			string helloWorld = "Hello, world!";
+
+			Console.WriteLine(helloWorld);
+
+			Timer timer;
+			using (Clock clock = new Clock())
+			{
+				timer = new Timer(clock.OnTick,
+					null,
+					TimeSpan.FromSeconds(1),
+					TimeSpan.FromSeconds(1));
+			}
+
+			Console.WriteLine("Press <enter> to quit");
+			Console.ReadLine();
+		}
 	}
+	
 }
