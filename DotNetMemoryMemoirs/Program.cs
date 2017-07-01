@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetMemoryMemoirs.LargeObjects;
 using DotNetMemoryMemoirs.StringsAllocations;
 
 namespace DotNetMemoryMemoirs
@@ -32,16 +33,16 @@ namespace DotNetMemoryMemoirs
 					break;
 
 				case "3":
-					//demosToRun.Add(new BeersDemoUnoptimized());
-					//demosToRun.Add(new BeersDemoOptimized());
+					demosToRun.Add(new LoaderUnOptimised());
+					demosToRun.Add(new LoaderOptimised());
 					break;
 
 				case "3-1":
-					//demosToRun.Add(new BeersDemoUnoptimized());
+					demosToRun.Add(new LoaderUnOptimised());
 					break;
 
 				case "3-2":
-					//demosToRun.Add(new BeersDemoOptimized());
+					demosToRun.Add(new LoaderOptimised());
 					break;
 
 				case "4":
