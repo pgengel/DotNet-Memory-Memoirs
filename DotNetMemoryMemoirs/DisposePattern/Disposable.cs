@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DotNetMemoryMemoirs.DisposePattern
 {
-	class DisposablePattern : IDisposable
+	class Disposable : IDisposable
 	{
 		private FileStream _fileStream;
 		private IntPtr _handle = Marshal.AllocHGlobal(4);
 
-		public DisposablePattern(FileStream fileStream)
+		public Disposable(FileStream fileStream)
 		{
 			_fileStream = fileStream;
 		}
@@ -24,13 +24,17 @@ namespace DotNetMemoryMemoirs.DisposePattern
 		public void Dispose()
 		{
 			Dispose(true);
-			GC.SuppressFinalize(this);
+			//Objects that implement the IDisposable interface can call this method from the object's 
+			//IDisposable.Dispose implementation to prevent the garbage collector from calling Object.Finalize
+			//on an object that does not require it. Typically, this is done to prevent the finalizer from releasing 
+			//unmanaged resources that have already been freed by the IDisposable.Dispose implementation.
+			GC.SuppressFinalize(this); //Requests that the common language runtime not call the finalizer for the specified object.
 		}
 
 		/// <summary>
 		/// When finalizing (GC), destroy unmanaged resources
 		/// </summary>
-		~DisposablePattern()
+		~Disposable()
 		{
 			Dispose(false);
 		}

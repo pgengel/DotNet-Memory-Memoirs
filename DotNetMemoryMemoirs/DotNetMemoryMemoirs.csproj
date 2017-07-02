@@ -46,8 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoxingUnboxing\BoxingUnboxing.cs" />
-    <Compile Include="DisposePattern\DisposablePattern.cs" />
+    <Compile Include="DisposePattern\Disposable.cs" />
     <Compile Include="DisposePattern\DisposeObject.cs" />
+    <Compile Include="DisposePattern\FinalizerObject.cs" />
     <Compile Include="GCMethods\GCCollection.cs" />
     <Compile Include="GCMethods\TryStartNoGCRegion.cs" />
     <Compile Include="IDemo.cs" />

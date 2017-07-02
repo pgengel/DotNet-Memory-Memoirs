@@ -30,11 +30,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 		{
 			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see SampleDisposable)");
 
-			var disposables = new List<DisposablePattern>();
+			var disposables = new List<Disposable>();
 			for (int i = 0; i < 10000; i++)
 			{
 				disposables.Add(
-					new DisposablePattern(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
+					new Disposable(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
 			}
 
 			Console.WriteLine("Collect a snapshot, then press enter to run GC.");
@@ -58,11 +58,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 		{
 			Console.WriteLine("Let's generate 10.000 objects and this time, dispose them.");
 
-			var disposables = new List<DisposablePattern>();
+			var disposables = new List<Disposable>();
 			for (int i = 0; i < 10000; i++)
 			{
 				disposables.Add(
-					new DisposablePattern(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
+					new Disposable(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
 			}
 
 			Console.WriteLine("Collect a snapshot, then press enter to dispose all objects and run GC.");
