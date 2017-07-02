@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime;
 
 namespace DotNetMemoryMemoirs.WeakReferences
 {
-	class WeakReferences
+	class WeakReferences : IDemo
 	{
 		public void Run(string[] args)
 		{

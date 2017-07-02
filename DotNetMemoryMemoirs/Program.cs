@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetMemoryMemoirs.DisposePattern;
 using DotNetMemoryMemoirs.LargeObjects;
 using DotNetMemoryMemoirs.StringsAllocations;
 
@@ -20,16 +21,16 @@ namespace DotNetMemoryMemoirs
 			switch (demoNumber.ToLowerInvariant())
 			{
 				case "1":
-					//demosToRun.Add(new WeakReferenceDemo());
-					//demosToRun.Add(new DisposeObjectsDemo());
+					demosToRun.Add(new WeakReferences.WeakReferences());
+					demosToRun.Add(new DisposeObject());
 					break;
 
 				case "1-1":
-					//demosToRun.Add(new WeakReferenceDemo());
+					demosToRun.Add(new WeakReferences.WeakReferences());
 					break;
 
 				case "1-2":
-					//demosToRun.Add(new DisposeObjectsDemo());
+					demosToRun.Add(new DisposeObject());
 					break;
 
 				case "3":
