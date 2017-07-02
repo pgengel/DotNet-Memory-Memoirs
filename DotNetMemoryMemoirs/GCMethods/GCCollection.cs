@@ -12,22 +12,28 @@ namespace DotNetMemoryMemoirs.GCMethods
 		private const long maxGarbage = 1000;
 		public void Run(string[] args)
 		{
+			Console.WriteLine("Press enter to make 'n reference to make some garbage");
+			Console.ReadLine();
 			GCCollection myGcCol = new GCCollection();
 
-			// Determine the maximum number of generations the system
-			// garbage collector currently supports.
+			Console.WriteLine("Determine the maximum number of generations the system");
+			Console.WriteLine("garbage collector currently supports.");
 			Console.WriteLine("The highest generation is {0}", GC.MaxGeneration);
 
+			Console.WriteLine("Press enter to make some garbage");
+			Console.ReadLine();
 			myGcCol.MakeSomeGarbage();
 
 			// Determine which generation myGCCol object is stored in.
-			Console.WriteLine("Generation: {0}", GC.GetGeneration(myGcCol));
+			Console.WriteLine("Determine Generation object is stored: {0}", GC.GetGeneration(myGcCol));
 
 			// Determine the best available approximation of the number 
 			// of bytes currently allocated in managed memory.
-			Console.WriteLine("he number of times garbage collection has occurred for gen0: {0}", GC.CollectionCount(0));
+			Console.WriteLine("The number of times garbage collection has occurred for gen0: {0}", GC.CollectionCount(0));
 
 			// Perform a collection of generation 0 only.
+			Console.WriteLine("Press enter to collect the garbage on gen0");
+			Console.ReadLine();
 			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
 			GC.Collect(0, GCCollectionMode.Optimized, false);
 			Console.WriteLine("The number of times garbage collection has occurred for gen0: {0}", GC.CollectionCount(0));
@@ -36,18 +42,17 @@ namespace DotNetMemoryMemoirs.GCMethods
 			GC.Collect(0, GCCollectionMode.Forced, true);
 			Console.WriteLine("The number of times garbage collection has occurred for gen0: {0}", GC.CollectionCount(0));
 
-
-			// Determine which generation myGCCol object is stored in.
-			Console.WriteLine("Generation: {0}", GC.GetGeneration(myGcCol));
+			Console.WriteLine("Determine which generation myGCCol object is stored in: {0}", GC.GetGeneration(myGcCol));
 
 			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
 
-			// Perform a collection of all generations up to and including 2.
+			Console.WriteLine("Press enter to collect the garbage on all generations");
+			Console.ReadLine();
 			GC.Collect(2);
 
-			// Determine which generation myGCCol object is stored in.
-			Console.WriteLine("Generation: {0}", GC.GetGeneration(myGcCol));
+			Console.WriteLine("Determine which generation myGCCol object is stored in: {0}", GC.GetGeneration(myGcCol));
 			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
+			Console.WriteLine("Press enter to finish");
 			Console.Read();
 		}
 

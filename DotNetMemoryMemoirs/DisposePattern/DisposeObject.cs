@@ -24,6 +24,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 			DontDispose();
 			RunDispose();
+			TimerDispose();
 		}
 
 		private static void DontDispose()
@@ -81,7 +82,9 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 		private static void TimerDispose()
 		{
-			string helloWorld = "Hello, world!";
+			Console.WriteLine("Releasing root objects.");
+			Console.ReadLine();
+			string helloWorld = "Running TimerDispose";
 
 			Console.WriteLine(helloWorld);
 

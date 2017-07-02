@@ -42,6 +42,11 @@ namespace DotNetMemoryMemoirs.WeakReferences
 
 			// Collect another snapshot
 			Console.WriteLine("Collect a snapshot, compare both snapshots. We should see new WeakReference<Data> being generated.");
+			Console.WriteLine("Then press enter to run GC.");
+			Console.ReadLine();
+			GC.Collect(2);
+			Console.WriteLine("Collect a snapshot, compare both snapshots.");
+
 		}
 	}
 }

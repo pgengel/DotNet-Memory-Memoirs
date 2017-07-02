@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DotNetMemoryMemoirs.DisposePattern;
+using DotNetMemoryMemoirs.GCMethods;
 using DotNetMemoryMemoirs.LargeObjects;
 using DotNetMemoryMemoirs.StringsAllocations;
 
@@ -21,12 +22,13 @@ namespace DotNetMemoryMemoirs
 			switch (demoNumber.ToLowerInvariant())
 			{
 				case "1":
-					demosToRun.Add(new WeakReferences.WeakReferences());
+					//demosToRun.Add(new GCCollection());
+					//demosToRun.Add(new WeakReferences.WeakReferences());
 					demosToRun.Add(new DisposeObject());
 					break;
 
 				case "1-1":
-					demosToRun.Add(new WeakReferences.WeakReferences());
+					//demosToRun.Add(new WeakReferences.WeakReferences());
 					break;
 
 				case "1-2":
