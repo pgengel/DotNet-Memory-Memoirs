@@ -22,7 +22,7 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 			// does not allocate a string! but captures state, making it two allocations...
 			// (func and state object)
 			Ensure.IsTrue2(Directory.Exists(directory2),
-				() => $"The directory '{directory2}' does not exist.",
+					() => $"The directory '{directory2}' does not exist.",
 				nameof(directory2));
 		}
 
@@ -78,8 +78,7 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 		{
 			if (!condition)
 			{
-				throw new ArgumentException(
-					string.Format(exceptionMessage, arg0), parameterName);
+				throw new ArgumentException(string.Format(exceptionMessage, arg0), parameterName);
 			}
 		}
 
@@ -87,8 +86,7 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 		{
 			if (!condition)
 			{
-				throw new ArgumentException(
-					string.Format(exceptionMessage, arg0, arg1), parameterName);
+				throw new ArgumentException(string.Format(exceptionMessage, arg0, arg1), parameterName);
 			}
 		}
 	}

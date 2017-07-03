@@ -22,7 +22,7 @@ namespace DotNetMemoryMemoirs.LargeObjects
 
 				Console.WriteLine("Collect a snapshot, press enter to run GC.");
 				Console.ReadLine();
-}
+			}
 
 			Console.WriteLine("Now look at the snapshots in the profiler...");
 			Console.WriteLine("* GC is almost invisible");
