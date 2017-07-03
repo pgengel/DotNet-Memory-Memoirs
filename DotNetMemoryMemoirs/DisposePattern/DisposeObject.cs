@@ -82,7 +82,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 		private static void TimerDispose()
 		{
-			Console.WriteLine("Releasing root objects.");
+			Console.WriteLine("Releasing root objects. press enter");
 			Console.ReadLine();
 			string helloWorld = "Running TimerDispose";
 
@@ -97,7 +97,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 					TimeSpan.FromSeconds(1));
 			}
 
-			Console.WriteLine("Press <enter> to quit");
+			Console.WriteLine("Take a snapshot and look for Timer object. Press <enter> to quit");
 			Console.ReadLine();
 		}
 	}

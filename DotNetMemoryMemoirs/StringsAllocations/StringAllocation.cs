@@ -55,6 +55,7 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 
 		static void AllocateSomeStringDuplicatesWithInterning()
 		{
+			//This will check that the string already exists and not make a duplicate
 			var dummy = string.Intern("https://www.github.com/pgengel/");
 
 			var url = string.Intern("https://www.github.com/pgengel");

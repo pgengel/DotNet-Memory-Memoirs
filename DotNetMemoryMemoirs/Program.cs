@@ -22,37 +22,14 @@ namespace DotNetMemoryMemoirs
 			switch (demoNumber.ToLowerInvariant())
 			{
 				case "1":
+					demosToRun.Add(new StringAllocation());
 					//demosToRun.Add(new GCCollection());
 					//demosToRun.Add(new WeakReferences.WeakReferences());
-					demosToRun.Add(new DisposeObject());
-					break;
+					//demosToRun.Add(new DisposeObject());
+					//demosToRun.Add(new LoaderUnOptimised());
+					//demosToRun.Add(new LoaderOptimised());
 
-				case "1-1":
-					//demosToRun.Add(new WeakReferences.WeakReferences());
 					break;
-
-				case "1-2":
-					demosToRun.Add(new DisposeObject());
-					break;
-
-				case "3":
-					demosToRun.Add(new LoaderUnOptimised());
-					demosToRun.Add(new LoaderOptimised());
-					break;
-
-				case "3-1":
-					demosToRun.Add(new LoaderUnOptimised());
-					break;
-
-				case "3-2":
-					demosToRun.Add(new LoaderOptimised());
-					break;
-
-				case "4":
-				case "4-1":
-					demosToRun.Add(new StringAllocation());
-					break;
-
 				default:
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Unknown demo. Try restarting the application.");
