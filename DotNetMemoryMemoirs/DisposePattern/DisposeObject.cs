@@ -29,7 +29,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 		private static void DontDispose()
 		{
-			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see SampleDisposable)");
+			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see Disposable)");
 
 			var disposables = new List<Disposable>();
 			for (int i = 0; i < 10000; i++)
@@ -43,7 +43,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			disposables.Clear();
 			GC.Collect(0);
 
-			Console.WriteLine("Collect a snapshot, and see if there are any SampleDisposable in memory.");
+			Console.WriteLine("Collect a snapshot, and see if there are any Disposable in memory.");
 			Console.WriteLine("All objects are in the finalizer queue... We need another GC! (enter)");
 			Console.ReadLine();
 			GC.Collect(0);
@@ -76,10 +76,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			disposables.Clear();
 			GC.Collect(0);
 
-			Console.WriteLine("Collect a snapshot, and see if there are any SampleDisposable in memory. They should be gone now.");
+			Console.WriteLine("Collect a snapshot, and see if there are any Disposable in memory. They should be gone now.");
 			GC.Collect(0);
 		}
 
+		//Show using in the IL viewer
 		private static void TimerDispose()
 		{
 			Console.WriteLine("Releasing root objects. press enter");

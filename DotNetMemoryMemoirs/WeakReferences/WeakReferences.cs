@@ -12,7 +12,7 @@ namespace DotNetMemoryMemoirs.WeakReferences
 		public void Run(string[] args)
 		{
 			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("Weak references");
+			Console.WriteLine("Weak references: Is a reference that does not protect the referenced object from collection by a garbage collector");
 			Console.ResetColor();
 			Console.WriteLine("Weak references allow the Garbage Collector to reclaim a referenced object.");
 			Console.WriteLine("Let's generate a cache of 20 objects with a weak reference. (see Cache)");
@@ -46,6 +46,7 @@ namespace DotNetMemoryMemoirs.WeakReferences
 			Console.ReadLine();
 			GC.Collect(2);
 			Console.WriteLine("Collect a snapshot, compare both snapshots.");
+			Console.WriteLine("You can always collect you do not have to scan the entire object.");
 
 		}
 	}

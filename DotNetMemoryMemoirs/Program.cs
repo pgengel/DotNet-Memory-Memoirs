@@ -22,11 +22,11 @@ namespace DotNetMemoryMemoirs
 			switch (demoNumber.ToLowerInvariant())
 			{
 				case "1":
-					demosToRun.Add(new StringAllocation());
+					//demosToRun.Add(new StringAllocation());
 					//demosToRun.Add(new GCCollection());
 					//demosToRun.Add(new WeakReferences.WeakReferences());
 					//demosToRun.Add(new DisposeObject());
-					//demosToRun.Add(new LoaderUnOptimised());
+					demosToRun.Add(new LoaderUnOptimised());
 					//demosToRun.Add(new LoaderOptimised());
 
 					break;

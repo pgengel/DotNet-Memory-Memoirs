@@ -23,9 +23,9 @@ namespace DotNetMemoryMemoirs.GCMethods
 			Console.WriteLine("Press enter to make some garbage");
 			Console.ReadLine();
 			myGcCol.MakeSomeGarbage();
-
+			Console.WriteLine("The Garbage size in Memory is: {0}", GC.GetTotalMemory(false));
 			// Determine which generation myGCCol object is stored in.
-			Console.WriteLine("Determine Generation object is stored: {0}", GC.GetGeneration(myGcCol));
+			Console.WriteLine("Determine Generation garbage object is stored: {0}", GC.GetGeneration(myGcCol));
 
 			// Determine the best available approximation of the number 
 			// of bytes currently allocated in managed memory.
@@ -34,7 +34,7 @@ namespace DotNetMemoryMemoirs.GCMethods
 			// Perform a collection of generation 0 only.
 			Console.WriteLine("Press enter to collect the garbage on gen0");
 			Console.ReadLine();
-			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
+			Console.WriteLine("Total Memory BEFORE GC: {0}", GC.GetTotalMemory(false));
 			GC.Collect(0, GCCollectionMode.Optimized, false);
 			Console.WriteLine("The number of times garbage collection has occurred for gen0: {0}", GC.CollectionCount(0));
 			GC.Collect(0, GCCollectionMode.Default, true);
@@ -44,14 +44,15 @@ namespace DotNetMemoryMemoirs.GCMethods
 
 			Console.WriteLine("Determine which generation myGCCol object is stored in: {0}", GC.GetGeneration(myGcCol));
 
-			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
+			Console.WriteLine("Total Memory AFTER GC has run: {0}", GC.GetTotalMemory(false));
 
 			Console.WriteLine("Press enter to collect the garbage on all generations");
 			Console.ReadLine();
+			Console.WriteLine("Total Memory BEFORE GC on all gen : {0}", GC.GetTotalMemory(false));
 			GC.Collect(2);
 
 			Console.WriteLine("Determine which generation myGCCol object is stored in: {0}", GC.GetGeneration(myGcCol));
-			Console.WriteLine("Total Memory: {0}", GC.GetTotalMemory(false));
+			Console.WriteLine("Total Memory AFTER GC on all gen: {0}", GC.GetTotalMemory(false));
 			Console.WriteLine("Press enter to finish");
 			Console.Read();
 		}

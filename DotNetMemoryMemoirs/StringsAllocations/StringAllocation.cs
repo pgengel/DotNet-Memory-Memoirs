@@ -40,25 +40,25 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 
 			var b = "Hello, World!";
 
-			var c = _httpClient.GetStringAsync("https://www.github.com/pgengel").Result;
+			//var c = _httpClient.GetStringAsync("AllocateSomeStringsMethod").Result;
 		}
 
 		static void AllocateSomeStringDuplicates()
 		{
-			var a = "https://www.github.com/pgengel";
+			var a = "AllocateSomeDuplicateStringsMethod";
 			var stringList = new List<string>();
 			for (int i = 0; i < 100; i++)
 			{
-				stringList.Add(a + "/");
+				stringList.Add(a + "AppendAnotherString");
 			}
 		}
 
 		static void AllocateSomeStringDuplicatesWithInterning()
 		{
 			//This will check that the string already exists and not make a duplicate
-			var dummy = string.Intern("https://www.github.com/pgengel/");
+			var dummy = string.Intern("AllocateSomeStringDuplicatesWithInterning");
 
-			var url = string.Intern("https://www.github.com/pgengel");
+			var url = string.Intern("AllocateSomeStringDuplicatesWithInterning");
 
 			var stringList = new List<string>();
 			for (int i = 0; i < 100; i++)
