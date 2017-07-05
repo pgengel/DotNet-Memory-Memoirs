@@ -3,3 +3,5 @@ obj
 packages
 
 \.vs/DotNetMemoryMemoirs/v15/\.suo
+
+*.user
