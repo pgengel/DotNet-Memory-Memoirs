@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxingUnboxing\BoxingUnboxing.cs" />
+    <Compile Include="DisposePattern\Disposable.cs" />
+    <Compile Include="DisposePattern\DisposeObject.cs" />
+    <Compile Include="DisposePattern\FinalizerObject.cs" />
+    <Compile Include="GCMethods\GCCollection.cs" />
+    <Compile Include="GCMethods\TryStartNoGCRegion.cs" />
+    <Compile Include="IDemo.cs" />
+    <Compile Include="LargeObjects\LoaderOptimised.cs" />
+    <Compile Include="LargeObjects\LoaderUnOptimised.cs" />
+    <Compile Include="LargeObjects\LoadLargeObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringsAllocations\StringAllocation.cs" />
+    <Compile Include="StringsAllocations\StringAllocationIL.cs" />
+    <Compile Include="WeakReferences\Cache.cs" />
+    <Compile Include="WeakReferences\Data.cs" />
+    <Compile Include="WeakReferences\WeakReferences.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="LargeObjects\large.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="package.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
