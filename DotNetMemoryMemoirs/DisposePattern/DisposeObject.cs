@@ -16,11 +16,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			File.WriteAllText("disposeobjectsdemo.txt", "Hello.");
 
 			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("Disposable objects");
+			Console.WriteLine("DisposableFileStream objects");
 			Console.ResetColor();
 
 			Console.WriteLine("Help the garbage collector to clean up objects!");
-			Console.WriteLine("Disposable does just that.");
+			Console.WriteLine("DisposableFileStream does just that.");
 
 			DontDispose();
 			RunDispose();
@@ -29,13 +29,13 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 		private static void DontDispose()
 		{
-			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see Disposable)");
+			Console.WriteLine("Let's generate 10.000 objects and not dispose them. Let's show what happens when not disposing... (see DisposableFileStream)");
 
-			var disposables = new List<Disposable>();
+			var disposables = new List<DisposableFileStream>();
 			for (int i = 0; i < 10000; i++)
 			{
 				disposables.Add(
-					new Disposable(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
+					new DisposableFileStream(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
 			}
 
 			Console.WriteLine("Collect a snapshot, then press enter to run GC.");
@@ -43,7 +43,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			disposables.Clear();
 			GC.Collect(0);
 
-			Console.WriteLine("Collect a snapshot, and see if there are any Disposable in memory.");
+			Console.WriteLine("Collect a snapshot, and see if there are any DisposableFileStream in memory.");
 			Console.WriteLine("All objects are in the finalizer queue... We need another GC! (enter)");
 			Console.ReadLine();
 			GC.Collect(0);
@@ -59,11 +59,11 @@ namespace DotNetMemoryMemoirs.DisposePattern
 		{
 			Console.WriteLine("Let's generate 10.000 objects and this time, dispose them.");
 
-			var disposables = new List<Disposable>();
+			var disposables = new List<DisposableFileStream>();
 			for (int i = 0; i < 10000; i++)
 			{
 				disposables.Add(
-					new Disposable(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
+					new DisposableFileStream(new FileStream("disposeobjectsdemo.txt", FileMode.OpenOrCreate, FileAccess.Read)));
 			}
 
 			Console.WriteLine("Collect a snapshot, then press enter to dispose all objects and run GC.");
@@ -76,7 +76,7 @@ namespace DotNetMemoryMemoirs.DisposePattern
 			disposables.Clear();
 			GC.Collect(0);
 
-			Console.WriteLine("Collect a snapshot, and see if there are any Disposable in memory. They should be gone now.");
+			Console.WriteLine("Collect a snapshot, and see if there are any DisposableFileStream in memory. They should be gone now.");
 			GC.Collect(0);
 		}
 

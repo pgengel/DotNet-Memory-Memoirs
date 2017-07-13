@@ -45,11 +45,11 @@ namespace DotNetMemoryMemoirs.StringsAllocations
 
 		static void AllocateSomeStringDuplicates()
 		{
-			var a = "AllocateSomeDuplicateStringsMethod";
-			var stringList = new List<string>();
+			var a = "Hallo World";
+
 			for (int i = 0; i < 100; i++)
 			{
-				stringList.Add(a + "AppendAnotherString");
+				a = a + " again";
 			}
 		}
 

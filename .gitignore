@@ -4,4 +4,8 @@ packages
 
 \.vs/DotNetMemoryMemoirs/v15/\.suo
 
+<<<<<<< Updated upstream
 *.user
+=======
+DotNetMemoryMemoirs/DotNetMemoryMemoirs\.csproj\.user
+>>>>>>> Stashed changes

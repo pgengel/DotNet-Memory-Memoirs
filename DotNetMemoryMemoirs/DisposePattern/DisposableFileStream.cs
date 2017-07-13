@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DotNetMemoryMemoirs.DisposePattern
 {
-	class Disposable : IDisposable
+	class DisposableFileStream : IDisposable
 	{
 		private FileStream _fileStream;
 		private IntPtr _handle = Marshal.AllocHGlobal(4);
 
-		public Disposable(FileStream fileStream)
+		public DisposableFileStream(FileStream fileStream)
 		{
 			_fileStream = fileStream;
 		}
@@ -33,8 +33,17 @@ namespace DotNetMemoryMemoirs.DisposePattern
 
 		/// <summary>
 		/// When finalizing (GC), destroy unmanaged resources
+		/// In non-garbage collected languages, as soon as the object's lifetime ends,
+		/// either through the completion of the local block of execution or when an exception is thrown, 
+		/// the destructor kicks in and the resources are automatically released. While garbage collection 
+		/// simplifies the management of the object lifecycle, it does prevent an object from knowing when 
+		/// it will be collected, which means that it is difficult to ensure that the resources held by that 
+		/// object are released early. Before the memory associated with an object is reclaimed by the GC, 
+		/// the Finalize method (if it is present) is invoked. This method is not tied to the lifetime of the object, 
+		/// so the timing of when (or even if) Finalize is called is undefined. This is what is meant by saying that
+		/// the GC performs non-deterministic finalization.
 		/// </summary>
-		~Disposable()
+		~DisposableFileStream()
 		{
 			Dispose(false);
 		}
